@@ -1,0 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+:root{
+  --bg:#071225;
+  --card: rgba(255,255,255,0.04);
+  --card-2: rgba(255,255,255,0.02);
+  --glass-border: rgba(255,255,255,0.08);
+  --accent1: rgba(139,92,246,0.9);
+  --accent2: rgba(6,182,212,0.9);
+  --text:#eaf6ff;
+  --muted: #b8d6ee;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg, #041025 0%, #071225 60%);font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:var(--text);-webkit-font-smoothing:antialiased}
+.page-bg{position:fixed;inset:0;pointer-events:none;background:
+  radial-gradient(600px 300px at 10% 10%, rgba(139,92,246,0.08), transparent 10%),
+  radial-gradient(500px 220px at 90% 80%, rgba(6,182,212,0.06), transparent 10%);
+filter:blur(40px);opacity:0.9}
+
+.wrap{max-width:1100px;margin:0 auto;padding:28px}
+.topbar{position:sticky;top:0;backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.02);z-index:50}
+.topbar .wrap{display:flex;align-items:center;gap:16px}
+.brand{font-weight:700;letter-spacing:0.4px}
+.brand span{color:var(--accent1)}
+.nav{margin-left:auto;display:flex;gap:12px;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+.nav a:hover{color:var(--text);background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+.btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)}
+
+/* Layout */
+.main-grid{display:grid;grid-template-columns:1fr;gap:22px}
+.hero{display:flex;gap:20px;align-items:stretch;padding:28px;border-radius:14px;border:1px solid var(--glass-border);background:linear-gradient(180deg,var(--card),var(--card-2));backdrop-filter:blur(8px)}
+.hero-left{flex:1}
+.hero-left h1{font-size:36px;margin:0 0 8px}
+.hero-left h1 span{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);margin:8px 0 12px}
+.hero-card{width:320px;padding:18px;border-radius:12px;align-self:start}
+.avatar{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:22px;margin-bottom:12px}
+
+/* about */
+.about, .skills, .projects, .contact{padding:22px;border-radius:12px;border:1px solid var(--glass-border);background:linear-gradient(180deg,var(--card),transparent)}
+.about-grid{display:flex;gap:14px;margin-top:12px}
+.card{flex:1;padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+
+/* skills */
+.skills .skill-grid{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
+.skill-circle{width:140px;height:140px;border-radius:50%;position:relative;border:6px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;background:conic-gradient(rgba(255,255,255,0.02),transparent);box-shadow:inset 0 -6px 30px rgba(0,0,0,0.6)}
+.skill-circle::after{content:attr(data-skill);position:absolute;bottom:12px;font-weight:600;color:var(--muted);font-size:13px}
+.skill-circle canvas{width:100%;height:100%;border-radius:50%}
+
+/* projects */
+.project-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:14px}
+.project{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));transition:transform 250ms ease, box-shadow 250ms ease;border:1px solid rgba(255,255,255,0.02)}
+.project:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+.meta{margin-top:10px}
+.meta span{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;margin-right:6px;font-size:12px}
+
+/* contact */
+.contact-form input, .contact-form textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--text);margin-bottom:10px}
+.note{font-size:13px;color:var(--muted)}
+
+/* footer */
+.site-footer{margin-top:18px;padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);text-align:center}
+
+/* responsive */
+@media(max-width:900px){
+  .hero{flex-direction:column}
+  .hero-card{width:100%}
+  .topbar .wrap{flex-wrap:wrap}
+  .nav{order:3;width:100%;justify-content:space-around;margin-top:8px}
+}
